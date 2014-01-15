@@ -1,0 +1,2 @@
+# 大文字・小文字の補完を可能
+set completion-ignore-case on

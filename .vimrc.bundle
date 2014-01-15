@@ -1,0 +1,260 @@
+"vunlde.vimで管理してるpluginを読み込む
+
+filetype off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+" Edit {{{
+
+  " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
+  NeoBundle 'scrooloose/nerdcommenter.git'
+
+  " visually indent guide
+  NeoBundle 'nathanaelkane/vim-indent-guides'
+
+  " Align : 高機能整形・桁揃えプラグイン
+  NeoBundle 'Align'
+
+  " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
+  NeoBundle 'YankRing.vim'
+
+  " surround.vim : テキストを括弧で囲む／削除する
+  " NeoBundle 'tpope/vim-surround.vim'
+  NeoBundle 'https://github.com/tpope/vim-surround.git'
+
+  " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
+  NeoBundle 'kana/vim-textobj-user'
+
+  " vim-textobj-syntax : syntax hilightされたものをtext-objectに
+  NeoBundle 'kana/vim-textobj-syntax.git'
+
+  " vim-textobj-plugins : いろんなものをtext-objectにする
+  NeoBundle 'thinca/vim-textobj-plugins.git'
+
+  " vim-textobj-indent : インデントされたものをtext-objectに
+  NeoBundle 'kana/vim-textobj-indent.git'
+
+  NeoBundleLazy 'alpaca-tc/beautify.vim', {
+      \ 'autoload' : {
+      \   'commands' : [
+      \     {
+      \       'name' : 'Beautify',
+      \       'complete' : 'customlist,beautify#complete_options'
+      \     }
+      \ ]
+      \ }}
+
+" }}}
+
+" Completion {{{
+
+  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
+  " NeoBundle 'AutoComplPop'
+
+  " 補完 neocomplcache.vim : 究極のVim的補完環境
+  NeoBundleLazy has('lua') ? 'Shougo/neocomplete.vim' : 'Shougo/neocomplcache.vim'
+  " NeoBundle has('lua') ? 'Shougo/neocomplete.vim' : 'Shougo/neocomplcache.vim'
+
+  " neocomplcacheのsinpet補完
+  NeoBundleLazy 'Shougo/neosnippet'
+
+  " various langueages snippets
+  " NeoBundle 'honza/snipmate-snippets'
+
+" }}}
+
+" Searching/Moving{{{
+
+  " smooth_scroll.vim : スクロールを賢く
+  " NeoBundle 'Smooth-Scroll'
+  NeoBundle 'yuroyoro/smooth_scroll.vim'
+
+  " vim-smartword : 単語移動がスマートな感じで
+  NeoBundle 'smartword'
+
+  " <Leader><Leader>w/fなどで、motion先をhilightする
+  NeoBundle 'EasyMotion'
+
+  " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
+  NeoBundle 'matchit.zip'
+
+  " VimからThe Silver Searcherを利用する
+  "  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
+  NeoBundle 'rking/ag.vim'
+
+" }}}
+
+" Encording {{{
+  NeoBundle 'banyan/recognize_charcode.vim'
+" }}}
+
+
+" Programming {{{
+
+  " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
+  NeoBundle 'thinca/vim-quickrun'
+
+  " perldocやphpmanual等のリファレンスをvim上で見る
+  NeoBundle 'thinca/vim-ref'
+
+  " ソースコード上のメソッド宣言、変数宣言の一覧を表示
+  NeoBundle 'taglist.vim'
+
+  " エラーがある場所をhilight
+  " NeoBundle 'errormarker.vim'
+
+  " 複数の単語ハイライト
+  NeoBundle 't9md/vim-quickhl'
+
+  " 複数置換
+  NeoBundle 'osyo-manga/vim-over'
+  " NeoBundleLazy 'osyo-manga/vim-over', {
+            " \ 'autoload': {
+            " \     'commands': ['OverCommandLine'] } }
+
+  " htmlのショートカット
+  NeoBundle 'mattn/emmet-vim'
+
+" }}}
+
+" Syntax {{{
+
+  " haml
+  NeoBundleLazy 'tpope/vim-haml', { 'autoload': {'filetypes': ['haml']} }
+
+  " JavaScript
+  NeoBundleLazy 'JavaScript-syntax', { 'autoload': {'filetypes': ['javascript']} }
+
+  " jslint
+  " NeoBundle 'hallettj/jslint.vim',
+
+  " jQuery
+  NeoBundle 'jQuery',
+
+  " nginx conf
+  NeoBundle 'nginx.vim'
+
+  " markdown
+  NeoBundle 'tpope/vim-markdown', { 'autoload': {'filetypes': ['markdown']} }
+
+  " python
+  NeoBundle 'yuroyoro/vim-python'
+
+  " scala
+  NeoBundle 'yuroyoro/vim-scala'
+
+  " clojure
+  NeoBundle 'jondistad/vimclojure'
+
+  " ghc-mod
+  NeoBundle 'eagletmt/ghcmod-vim'
+
+  " coffee script
+  NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': {'filetypes': ['coffee']} }
+
+  " jade
+  NeoBundle 'digitaltoad/vim-jade'
+
+  " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+  NeoBundle 'scrooloose/syntastic'
+
+" }}}
+
+" Buffer {{{
+
+  " NERDTree : ツリー型エクスプローラ
+  NeoBundleLazy 'scrooloose/nerdtree', {
+            \ 'autoload': {
+            \     'commands': ['NERDTreeToggle'] } }
+
+  " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
+  NeoBundle 'vtreeexplorer'
+
+" }}}
+
+" Utility {{{
+
+  " vimshell : vimのshell
+  NeoBundle 'Shougo/vimshell.git'
+
+  " vimproc : vimから非同期実行。vimshelleで必要
+  NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+  " vim-altercmd : Ex command拡張
+  NeoBundle 'tyru/vim-altercmd'
+
+  " ステータスラインに顔文字を表示
+  " NeoBundle 'mattn/hahhah-vim'
+
+  " powerline
+  " NeoBundle 'https://github.com/Lokaltog/vim-powerline.git'
+
+  " lighline
+  NeoBundle 'itchyny/lightline.vim'
+
+  " vimからGit操作する
+  NeoBundle 'tpope/vim-fugitive'
+
+  " ctrip 多機能セレクタ
+  NeoBundle 'kien/ctrlp.vim'
+
+  " gitの差分を表示ハイライト shows a git diff in the 'gutter' (sign column)
+  NeoBundleLazy 'airblade/vim-gitgutter', {
+            \ 'autoload': {
+            \     'commands': ['GitGutterToggle'] } }
+
+" }}}
+
+" Unite {{{{
+
+  " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
+  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'ujihisa/unite-colorscheme'
+  NeoBundle 'tsukkee/unite-help'
+  NeoBundle 'Sixeight/unite-grep'
+  " NeoBundle 'h1mesuke/unite-outline'
+  " NeoBundle 'basyura/unite-rails'
+  " NeoBundle 'thinca/vim-unite-history'
+  " NeoBundle 'tsukkee/unite-tag'
+  " NeoBundle 'choplin/unite-vim_hacks'
+
+" }}}
+
+" ColorSchema{{{{
+
+  " color schema 256
+  NeoBundle 'desert256.vim'
+  NeoBundle 'mrkn256.vim'
+  NeoBundle 'tomasr/molokai'
+  NeoBundle 'yuroyoro/yuroyoro256.vim'
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'croaker/mustang-vim'
+  NeoBundle 'jeffreyiacono/vim-colors-wombat'
+  NeoBundle 'nanotech/jellybeans.vim'
+  NeoBundle 'vim-scripts/Lucius'
+  NeoBundle 'vim-scripts/Zenburn'
+  NeoBundle 'jpo/vim-railscasts-theme'
+  NeoBundle 'therubymug/vim-pyte'
+  NeoBundle 'nanotech/jellybeans.vim'
+  NeoBundle 'chriskempson/vim-tomorrow-theme'
+  NeoBundle 'quanganhdo/grb256'
+  NeoBundle 'vim-scripts/Wombat'
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'matthewtodd/vim-twilight'
+  NeoBundle 'vim-scripts/twilight256.vim'
+  NeoBundle 'vim-scripts/Adaryn.vim'
+  " NeoBundle 'vim-scripts/wombat256.vim'
+
+" }}}
+
+filetype plugin indent on
