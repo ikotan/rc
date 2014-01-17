@@ -21,19 +21,29 @@ let g:Align_xstrlen = 3
 " neocomplcache.vim
 "------------------------------------
 
-" Disable AutoComplPop.
+" AutoComplPopを無効にする
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
+" NeoComplCacheを有効にする
 let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
+" smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
+" 補完が自動で開始される文字数
+let g:neocomplcache_auto_completion_start_length = 1
+" シンタックスをキャッシュするときの最小文字長を3に
 let g:neocomplcache_min_syntax_length = 3
+" neocomplcacheを自動的にロックするバッファ名のパターン
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" -入力による候補番号の表示
+let g:neocomplcache_enable_quick_match = 1
+" 補完候補の一番先頭を選択状態にする(AutoComplPopと似た動作)
+" let g:neocomplcache_enable_auto_select = 1
+"ポップアップメニューで表示される候補の数。初期値は100
+let g:neocomplcache_max_list = 20
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'perl'    : $HOME . '/.vim/dict/perl.dict'
+    \ 'default'     : '',
+    \ 'perl'        : $HOME . '/.vim/dict/perl.dict',
+    \ 'javascript'  : $HOME.'/.vim/dict/javascript.dict'
     \ }
 " Plugin key-mappings.
 inoremap <expr><C-g>  neocomplcache#undo_completion()
@@ -84,14 +94,14 @@ endif
 
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
-"<Leader>xでコメントをトグル(NERD_commenter.vim)
-map <Leader>x, c<space>
-""未対応ファイルタイプのエラーメッセージを表示しない
+" <Leader>xでコメントをトグル(NERD_commenter.vim)
+map <Leader> c<space>
+" 未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
 
 " ------------------------------------
 " surround.vim
-"------------------------------------
+" ------------------------------------
 
 " s, ssで選択範囲を指定文字でくくる
 nmap s <Plug>Ysurround
@@ -371,6 +381,7 @@ set laststatus=2
     " \ }
 
 let g:lightline = {
+    \ 'colorscheme': 'wombat',
     \ 'mode_map': { 'c': 'NORMAL' },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'gitgutter', 'filename' ] ]

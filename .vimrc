@@ -159,7 +159,6 @@ if has("autochdir")
 else
   set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
-
 set notagbsearch
 
 "<C-t>はscreentとかぶるので削除
@@ -328,6 +327,7 @@ nnoremap <C-h> <C-w>h
 "-------------------------------------------------------------------------------
 " colorscheme yuroyoro256       " colorscheme mrkn256
 color Tomorrow-Night-Eighties
+set background=light
 
 if &term =~ "xterm-256color" || "screen-256color"
   " 256色
@@ -345,6 +345,12 @@ elseif &term =~ "xterm-color"
 endif
 
 syntax enable                 " ハイライト on
+
+" 補完候補の色づけ for vim7
+hi Pmenu ctermbg=218 ctermfg=0 guifg=#000000 guibg=#999999
+hi PmenuSel ctermbg=8 ctermfg=39
+hi PmenuSbar ctermbg=0 ctermfg=9
+hi PmenuSbar ctermbg=218 ctermfg=0 guifg=#000000 guibg=#FFFFFF
 
 "-------------------------------------------------------------------------------
 " 編集関連 Edit
