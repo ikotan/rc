@@ -201,8 +201,11 @@ vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "選択した文字列を置換
 vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
-"s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
-nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
+" s*置換後文字列/g<Cr>でカーソル下のキーワードを置換
+" nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
+
+" visualモードでのs*置換後文字列/g<Cr>でカーソル下のキーワードを置換
+" vnoremap <expr> s* ':substitute/\<' . expand('<cword>') . '\>/'
 
 " Ctrl-iでヘルプ
 nnoremap <C-i>  :<C-u>help<Space>
