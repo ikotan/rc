@@ -194,6 +194,9 @@ let g:beautify#beautifier#jq#bin = 'jq'
 " let g:beautify#beautifier#html2haml#bin = 'html2haml'
 let g:beautify#beautifier#sass_convert#bin = 'sass-convert'
 
+nnoremap <silent> <Space>bj  :<C-u>Beautify js-beautify<Enter>
+nnoremap <silent> <Space>bh  :<C-u>Beautify html-beautify<Enter>
+
 "------------------------------------
 " unite.vim
 "------------------------------------
@@ -219,9 +222,9 @@ nnoremap <silent> [unite]d  :<C-u>UniteWithBufferDir file<CR>
 " snippet一覧
 nnoremap <silent> [unite]s  :<C-u>Unite snippet<CR>
 " color一覧
-nnoremap <silent> [unite]c  :<C-u>Unite colorscheme<CR>
+nnoremap <silent> [unite]c  :<C-u>Unite colorscheme -auto-preview<CR>
 
-" nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 " ウィンドウを分割して開く
 au Filetype unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('splist')
@@ -269,12 +272,23 @@ endif
 "------------------------------------
 "ctrip vim
 "------------------------------------
-
+" 起動コマンド
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-a>'],
     \ }
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = {
+  " \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  " \ 'file': '\v\.(exe|so|dll)$',
+  " \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  " \ }
+" vimで開いたディレクトリから検索
+nnoremap <silent> <space><C-p> :<C-u>CtrlP '~/'<Enter>
 
-"------------------------------------
+"------------------------------------a
 " vim-gitgutter
 "------------------------------------
 
@@ -459,5 +473,4 @@ endfunction
 function! MyMode()
   return winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
-
 

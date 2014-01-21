@@ -238,6 +238,7 @@ nnoremap k gk
 nnoremap l <Right>
 nnoremap <Down> gj
 nnoremap <Up>   gk
+nnoremap w <S-e>
 
 " 0, 9で行頭、行末へ
 nmap 1 0
@@ -254,12 +255,8 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 "<space>j, <space>kで画面送り
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
-
-" spaceで次のbufferへ。back-spaceで前のbufferへ
-" nmap <Space><Space> ;MBEbn<CR>
-" nmap <BS><BS> ;MBEbp<CR>
+" noremap <Space>j <C-f>
+" noremap <Space>k <C-b>
 
 " F2で前のバッファ
 map <F2> <ESC>;bp<CR>
@@ -299,6 +296,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
+
+" CTRL-hjklでウィンドウサイズ調整
+nnoremap <S-j> <C-w>+
+nnoremap <S-k> <C-w>-
+nnoremap <S-l> <C-w>>
+nnoremap <S-h> <C-w><
 
 " git-diff-aware version of gf commands.
 " http://labs.timedia.co.jp/2011/04/git-diff-aware-gf-commands-for-vim.html
