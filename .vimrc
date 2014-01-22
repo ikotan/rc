@@ -266,10 +266,6 @@ map <F3> <ESC>;bn<CR>
 map <F4> <ESC>:bnext \| bdelete #<CR>
 command! Bw :bnext \| bdelete #
 
-"フレームサイズを怠惰に変更する
-map <kPlus> <C-W>+
-map <kMinus> <C-W>-
-
 " 前回終了したカーソル行に移動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
@@ -297,7 +293,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-" CTRL-hjklでウィンドウサイズ調整
+" Shift-hjklでフレームサイズ調整
 nnoremap <S-j> <C-w>+
 nnoremap <S-k> <C-w>-
 nnoremap <S-l> <C-w>>
@@ -489,16 +485,16 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 
 " ファイルタイプの変換ショートカット
 noremap <space>apache     :setfiletype apache
-noremap <space>aspvbs     :setfiletype aspvbs
-noremap <space>c          :setfiletype c
-noremap <space>cpp        :setfiletype cpp
-noremap <space>cs         :setfiletype cs
+" noremap <space>aspvbs     :setfiletype aspvbs
+" noremap <space>c          :setfiletype c
+" noremap <space>cpp        :setfiletype cpp
+" noremap <space>cs         :setfiletype cs
 noremap <space>css        :setfiletype css
-noremap <space>diff       :setfiletype diff
-noremap <space>eruby      :setfiletype eruby
+" noremap <space>diff       :setfiletype diff
+" noremap <space>eruby      :setfiletype eruby
 noremap <space>html       :setfiletype html
 noremap <space>java       :setfiletype java
-noremap <space>javascript :setfiletype javascript
+noremap <space>js         :setfiletype javascript
 noremap <space>perl       :setfiletype perl
 noremap <space>php        :setfiletype php
 noremap <space>python     :setfiletype python
@@ -506,9 +502,9 @@ noremap <space>ruby       :setfiletype ruby
 noremap <space>haml       :setfiletype haml
 noremap <space>sh         :setfiletype sh
 noremap <space>sql        :setfiletype sql
-noremap <space>vb         :setfiletype vb
+" noremap <space>vb         :setfiletype vb
 noremap <space>vim        :setfiletype vim
-noremap <space>wsh        :setfiletype wsh
+" noremap <space>wsh        :setfiletype wsh
 noremap <space>xhtml      :setfiletype xhtml
 noremap <space>xml        :setfiletype xml
 noremap <space>yaml       :setfiletype yaml

@@ -19,7 +19,10 @@ endif
   NeoBundle 'Align'
 
   " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  NeoBundle 'YankRing.vim'
+  " NeoBundle 'YankRing.vim'
+
+  " yankround : ヤンクの履歴を管理し、順々に参照、出力できるようにする YankRing.vimみたいなもの
+  NeoBundle 'LeafCage/yankround.vim'
 
   " surround.vim : テキストを括弧で囲む／削除する
   " NeoBundle 'tpope/vim-surround.vim'
