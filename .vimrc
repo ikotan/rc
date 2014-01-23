@@ -327,9 +327,6 @@ nnoremap <S-h> <C-w><
 "-------------------------------------------------------------------------------
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
-" colorscheme yuroyoro256       " colorscheme mrkn256
-color Tomorrow-Night-Eighties
-set background=light
 
 if &term =~ "xterm-256color" || "screen-256color"
   " 256色
@@ -347,6 +344,19 @@ elseif &term =~ "xterm-color"
 endif
 
 syntax enable                 " ハイライト on
+
+" if has('gui_running')
+    " set background=light
+" else
+    " set background=dark
+" endif
+set background=light
+
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+
+" colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 
 " 補完候補の色づけ for vim7
 hi Pmenu ctermbg=218 ctermfg=0 guifg=#000000 guibg=#999999

@@ -252,7 +252,6 @@ endif
   NeoBundle 'chriskempson/vim-tomorrow-theme'
   NeoBundle 'quanganhdo/grb256'
   NeoBundle 'vim-scripts/Wombat'
-  NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'matthewtodd/vim-twilight'
   NeoBundle 'vim-scripts/twilight256.vim'
   NeoBundle 'vim-scripts/Adaryn.vim'
