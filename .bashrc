@@ -7,6 +7,31 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # ----------------------------
+# libevent tmux nodebrew perlbrew
+# ----------------------------
+export LD_LIBRARY_PATH=/usr/local/libevent/lib
+export PATH=${PATH}:/usr/local/tmux/bin
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+source ~/perl5/perlbrew/etc/bashrc
+
+# ----------------------------
+# VIM SVN, GIT
+# ----------------------------
+PATH="$PATH":/usr/local/bin/vim""
+export SVN_EDITOR=vim
+export EDITOR=vim
+
+# ----------------------------
+# APPDRIVER
+# ----------------------------
+source ~/.bashrc.appdriver
+
+# ----------------------------
+# git-flowの補完
+# ----------------------------
+source /usr/local/bin/git-flow-completion.bash
+
+# ----------------------------
 # show git branch
 # ----------------------------
 if [ -f ~/.git-completion.bash ]; then
@@ -18,10 +43,13 @@ if [ -f ~/.git-prompt.sh ]; then
 fi
 
 # ----------------------------
-# git-flowの補完
+# PROMPT
 # ----------------------------
-source /usr/local/bin/git-flow-completion.bash
+export PS1='$(check-shell-command):\[\033[1;35m\]\t\[\033[00m\]:\[\033[1;36m\]\w\n\[\033[1;32m\]\u\[\033[1;31m\]$(__perl_version)$(__git_ps1)\[\033[00m\]->'
 
+# ----------------------------
+# 顔文字作成
+# ----------------------------
 function check-shell-command {
   if [ $? -eq 0 ]; then
     face="\e[1;36m(っ＾ω＾)っ"
@@ -60,7 +88,6 @@ __git_branch_ps1(){
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-
 # ----------------------------
 # perlバージョン表示
 # ----------------------------
@@ -70,44 +97,13 @@ __perl_version() {
 }
 
 # ----------------------------
-# PROMPT
-# ----------------------------
-# export PS1='$(check-shell-command):\[\033[1;35m\]\t\[\033[00m\]:\[\033[1;34m\]\w\n\[\033[1;32m\]\u\[\033[1;31m\]$(__git_ps1)\[\033[00m\]->'
-export PS1='$(check-shell-command):\[\033[1;35m\]\t\[\033[00m\]:\[\033[1;34m\]\w\n\[\033[1;32m\]\u\[\033[1;31m\]$(__perl_version)$(__git_ps1)\[\033[00m\]->'
-
-# ----------------------------
-# APPDRIVER
-# ----------------------------
-export TACHYON_WEBSITE_HOME=.
-export LUXON_WEBSITE_HOME=.
-export NUCLEUS_WEBSITE_HOME=.
-
-# ----------------------------
-# libevent tmux nodebrew perlbrew
-# ----------------------------
-export LD_LIBRARY_PATH=/usr/local/libevent/lib
-export PATH=${PATH}:/usr/local/tmux/bin
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-source ~/perl5/perlbrew/etc/bashrc
-
-# ----------------------------
-# SVN, GIT
-# ----------------------------
-export SVN_EDITOR=vim
-export EDITOR=vim
-
-# ----------------------------
-# vim PATH
-# ----------------------------
-PATH="$PATH":/usr/local/bin/vim""
-
-# ----------------------------
 # User specific aliases and functions
 # ----------------------------
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias lsa='ls -a'
+alias ls='ls -F --color=auto'
+alias lsa='ls -a --color=auto'
 alias vi='vim'
 alias ag='ag -i'
 alias grep='grep --color=auto'
@@ -132,3 +128,16 @@ stty stop undef
 bind '"\C-n": history-search-forward'
 # C-pで履歴検索
 bind '"\C-p": history-search-backward'
+
+# ----------------------------
+# perl module version 確認
+# ----------------------------
+# alias pmv='perl -MDBIx::Class::Schema::Loader -le '\''print $DBIx::Class::Schema::Loader::VERSION'\'''
+
+perlmv () {
+    for MODULE in $@
+    do
+        perl -le "eval { require $MODULE}; print qq{${MODULE}: \$${MODULE}::VERSION}"
+    done
+    MODULE=
+}
