@@ -105,7 +105,6 @@ if has("autocmd")
   autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
   autocmd FileType coppffee   setlocal sw=2 sts=2 ts=2 et
-  " autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType perl       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
@@ -116,7 +115,7 @@ if has("autocmd")
   autocmd FileType vb         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType xml        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
@@ -327,9 +326,6 @@ nnoremap <S-h> <C-w><
 "-------------------------------------------------------------------------------
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
-" colorscheme yuroyoro256       " colorscheme mrkn256
-color Tomorrow-Night-Eighties
-set background=light
 
 if &term =~ "xterm-256color" || "screen-256color"
   " 256色
@@ -347,6 +343,19 @@ elseif &term =~ "xterm-color"
 endif
 
 syntax enable                 " ハイライト on
+
+" if has('gui_running')
+    " set background=light
+" else
+    " set background=dark
+" endif
+set background=light
+
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+
+" colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
 
 " 補完候補の色づけ for vim7
 hi Pmenu ctermbg=218 ctermfg=0 guifg=#000000 guibg=#999999
@@ -468,6 +477,10 @@ autocmd FileType html :set fileencoding=utf-8
 autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
 autocmd FileType scala :set fileencoding=utf-8
+
+" markdown live preview
+autocmd BufRead,BufNewFile *.mkd  setfiletype markdown
+autocmd BufRead,BufNewFile *.md  setfiletype markdown
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc

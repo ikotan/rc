@@ -121,6 +121,9 @@ endif
   " htmlのショートカット
   NeoBundle 'mattn/emmet-vim'
 
+  " markdown live preview
+  NeoBundle 'suan/vim-instant-markdown'
+
 " }}}
 
 " Syntax {{{
@@ -139,6 +142,9 @@ endif
 
   " nginx conf
   NeoBundle 'nginx.vim'
+
+  " markdown
+  NeoBundle 'Markdown'
 
   " markdown
   NeoBundle 'tpope/vim-markdown', { 'autoload': {'filetypes': ['markdown']} }
@@ -196,6 +202,9 @@ endif
   " vim-altercmd : Ex command拡張
   NeoBundle 'tyru/vim-altercmd'
 
+  " ブラウザを立ち上げる
+  NeoBundle 'tyru/open-browser.vim'
+
   " ステータスラインに顔文字を表示
   " NeoBundle 'mattn/hahhah-vim'
 
@@ -252,7 +261,6 @@ endif
   NeoBundle 'chriskempson/vim-tomorrow-theme'
   NeoBundle 'quanganhdo/grb256'
   NeoBundle 'vim-scripts/Wombat'
-  NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'matthewtodd/vim-twilight'
   NeoBundle 'vim-scripts/twilight256.vim'
   NeoBundle 'vim-scripts/Adaryn.vim'
