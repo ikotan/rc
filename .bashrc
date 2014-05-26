@@ -7,12 +7,20 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # ----------------------------
-# libevent tmux nodebrew perlbrew
+# APPDRIVER
+# ----------------------------
+source ~/.bashrc.appdriver
+
+# ----------------------------
+# libevent tmux nodebrew perlbrew rubyenv
 # ----------------------------
 export LD_LIBRARY_PATH=/usr/local/libevent/lib
 export PATH=${PATH}:/usr/local/tmux/bin
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 source ~/perl5/perlbrew/etc/bashrc
+<<<<<<< HEAD
+=======
+export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)"
 
 # ----------------------------
 # VIM SVN, GIT
@@ -20,11 +28,6 @@ source ~/perl5/perlbrew/etc/bashrc
 PATH="$PATH":/usr/local/bin/vim""
 export SVN_EDITOR=vim
 export EDITOR=vim
-
-# ----------------------------
-# APPDRIVER
-# ----------------------------
-source ~/.bashrc.appdriver
 
 # ----------------------------
 # git-flowの補完
@@ -132,7 +135,6 @@ bind '"\C-p": history-search-backward'
 # ----------------------------
 # perl module version 確認
 # ----------------------------
-# alias pmv='perl -MDBIx::Class::Schema::Loader -le '\''print $DBIx::Class::Schema::Loader::VERSION'\'''
 
 perlmv () {
     for MODULE in $@

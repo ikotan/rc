@@ -15,6 +15,9 @@ endif
   " visually indent guide
   NeoBundle 'nathanaelkane/vim-indent-guides'
 
+  " indent guide
+  NeoBundle 'Yggdroot/indentLine'
+
   " Align : 高機能整形・桁揃えプラグイン
   NeoBundle 'Align'
 
@@ -118,8 +121,17 @@ endif
             " \ 'autoload': {
             " \     'commands': ['OverCommandLine'] } }
 
+  " SublimeTextの複数マーク& 同時編集
+  " NeoBundle 'terryma/vim-multiple-cursors'
+  " NeoBundleLazy 'terryma/vim-multiple-cursors', { 'autload': {
+      " \ 'function_prefix': 'multiple_cursors',
+      " \ }}
+
   " htmlのショートカット
   NeoBundle 'mattn/emmet-vim'
+
+  " markdown live preview
+  NeoBundle 'suan/vim-instant-markdown'
 
 " }}}
 
@@ -141,6 +153,9 @@ endif
   NeoBundle 'nginx.vim'
 
   " markdown
+  NeoBundle 'Markdown'
+
+  " markdown
   NeoBundle 'tpope/vim-markdown', { 'autoload': {'filetypes': ['markdown']} }
 
   " python
@@ -160,6 +175,12 @@ endif
 
   " jade
   NeoBundle 'digitaltoad/vim-jade'
+
+  " slim
+  NeoBundle 'slim-template/vim-slim'
+
+  " scss
+  NeoBundle 'cakebaker/scss-syntax.vim'
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundle 'scrooloose/syntastic'
@@ -195,6 +216,9 @@ endif
 
   " vim-altercmd : Ex command拡張
   NeoBundle 'tyru/vim-altercmd'
+
+  " ブラウザを立ち上げる
+  NeoBundle 'tyru/open-browser.vim'
 
   " ステータスラインに顔文字を表示
   " NeoBundle 'mattn/hahhah-vim'
