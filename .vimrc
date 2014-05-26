@@ -344,24 +344,31 @@ endif
 
 syntax enable                 " ハイライト on
 
-" if has('gui_running')
-    " set background=light
-" else
-    " set background=dark
-" endif
-set background=light
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 
-let g:solarized_termtrans=1
+
+let g:rehash256=1
+
+" let g:solarized_termtrans=1
 let g:solarized_termcolors=256
+colorscheme solarized
 
-" colorscheme solarized
-colorscheme Tomorrow-Night-Eighties
+
+" let g:molokai_original=1
+" colorscheme molokai
+
+
+" colorscheme Tomorrow-Night-Eighties
 
 " 補完候補の色づけ for vim7
-hi Pmenu ctermbg=218 ctermfg=0 guifg=#000000 guibg=#999999
-hi PmenuSel ctermbg=8 ctermfg=39
-hi PmenuSbar ctermbg=0 ctermfg=9
-hi PmenuSbar ctermbg=218 ctermfg=0 guifg=#000000 guibg=#FFFFFF
+hi Pmenu     ctermbg=218 ctermfg=0  guifg=#000000 guibg=#999999
+hi PmenuSel  ctermbg=8   ctermfg=39
+hi PmenuSbar ctermbg=0   ctermfg=9
+hi PmenuSbar ctermbg=218 ctermfg=0  guifg=#000000 guibg=#FFFFFF
 
 "-------------------------------------------------------------------------------
 " 編集関連 Edit
@@ -448,9 +455,9 @@ inoremap < <><LEFT>
 " vnoremap ' "zdi'<C-R>z'<ESC>
 
 " 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
+" autocmd BufWritePre * :%s/\s\+$//ge
 " 保存時にtabをスペースに変換する
-autocmd BufWritePre * :%s/\t/  /ge
+" autocmd BufWritePre * :%s/\t/  /ge
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
@@ -497,7 +504,7 @@ command! Sjis Cp932
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
 " ファイルタイプの変換ショートカット
-noremap <space>apache     :setfiletype apache
+noremap <space>ap     :setfiletype apache
 " noremap <space>aspvbs     :setfiletype aspvbs
 " noremap <space>c          :setfiletype c
 " noremap <space>cpp        :setfiletype cpp

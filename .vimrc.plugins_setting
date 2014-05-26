@@ -188,6 +188,12 @@ else
 endif
 
 "------------------------------------
+" indentLine
+"------------------------------------
+nnoremap <silent> <Space>il :<C-u>IndentLinesToggle<Enter>
+set list listchars=tab:\¦\
+
+"------------------------------------
 " beautify.vim
 "------------------------------------
 let g:beautify#beautifier#npm_beautifier#bin = {
