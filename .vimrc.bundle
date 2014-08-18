@@ -182,6 +182,9 @@ endif
   " scss
   NeoBundle 'cakebaker/scss-syntax.vim'
 
+  " Ruby向けにendを自動挿入してくれる
+  NeoBundle 'tpope/vim-endwise'
+
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   NeoBundle 'scrooloose/syntastic'
 
@@ -265,6 +268,7 @@ endif
   NeoBundle 'tomasr/molokai'
   NeoBundle 'yuroyoro/yuroyoro256.vim'
   NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'vim-scripts/rdark'
   NeoBundle 'croaker/mustang-vim'
   NeoBundle 'jeffreyiacono/vim-colors-wombat'
   NeoBundle 'nanotech/jellybeans.vim'

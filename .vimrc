@@ -67,7 +67,7 @@ augroup END
 
 hi clear CursorLine
 hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+hi CursorLine ctermbg=black guibg=black
 
 " コマンド実行中は再描画しない
 set lazyredraw
@@ -99,6 +99,7 @@ if has("autocmd")
   autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
@@ -357,18 +358,22 @@ let g:rehash256=1
 let g:solarized_termcolors=256
 colorscheme solarized
 
-
 " let g:molokai_original=1
 " colorscheme molokai
 
-
 " colorscheme Tomorrow-Night-Eighties
 
+" vimのカラー修正
+hi Normal     ctermbg=none
+hi Visual     ctermbg=8   ctermfg=40
+hi IncSearch  ctermfg=42
+hi Search     ctermfg=42
+" hi Comment    ctermbg=8   ctermfg=125
+
 " 補完候補の色づけ for vim7
-hi Pmenu     ctermbg=218 ctermfg=0  guifg=#000000 guibg=#999999
-hi PmenuSel  ctermbg=8   ctermfg=39
-hi PmenuSbar ctermbg=0   ctermfg=9
-hi PmenuSbar ctermbg=218 ctermfg=0  guifg=#000000 guibg=#FFFFFF
+hi Pmenu      ctermbg=218 ctermfg=0  guifg=#000000 guibg=#999999
+hi PmenuSel   ctermbg=8   ctermfg=39
+hi PmenuSbar  ctermbg=218 ctermfg=0  guifg=#000000 guibg=#FFFFFF
 
 "-------------------------------------------------------------------------------
 " 編集関連 Edit
@@ -457,7 +462,7 @@ inoremap < <><LEFT>
 " 保存時に行末の空白を除去する
 " autocmd BufWritePre * :%s/\s\+$//ge
 " 保存時にtabをスペースに変換する
-" autocmd BufWritePre * :%s/\t/  /ge
+autocmd BufWritePre * :%s/\t/  /ge
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
@@ -480,6 +485,7 @@ autocmd FileType cvs :set fileencoding=euc-jp
 autocmd FileType svn :set fileencoding=utf-8
 autocmd FileType js :set fileencoding=utf-8
 autocmd FileType css :set fileencoding=utf-8
+autocmd FileType scss :set fileencoding=utf-8
 autocmd FileType html :set fileencoding=utf-8
 autocmd FileType xml :set fileencoding=utf-8
 autocmd FileType java :set fileencoding=utf-8
@@ -510,6 +516,7 @@ noremap <space>ap     :setfiletype apache
 " noremap <space>cpp        :setfiletype cpp
 " noremap <space>cs         :setfiletype cs
 noremap <space>css        :setfiletype css
+noremap <space>scss       :setfiletype scss
 " noremap <space>diff       :setfiletype diff
 " noremap <space>eruby      :setfiletype eruby
 noremap <space>html       :setfiletype html
