@@ -1,0 +1,41 @@
+# FUNCTION
+# ----------------------------
+# perl module version 確認
+# ----------------------------
+
+perlmv () {
+    for MODULE in $@
+    do
+        perl -le "eval { require $MODULE}; print qq{${MODULE}: \$${MODULE}::VERSION}"
+    done
+    MODULE=
+}
+
+# ----------------------------
+# ブランチ作成後のsubversionのdiff確認
+# ----------------------------
+
+svn_diff_stop_on_copy() {
+  local revision_by_stop_on_copy=`svn log --stop-on-copy -q --incremental | tail -1 | sed 's/^r\([0-9]\+\).*$/\1/' | tr -d '\n'`
+  svn diff -r $revision_by_stop_on_copy:HEAD
+}
+
+# ----------------------------
+# subversionの1つ前commitのdiff確認
+# ----------------------------
+
+svn_diff_head() {
+  svn diff -r PREV:HEAD
+}
+
+# ----------------------------
+# ps aux を便利にしたやつ
+# ----------------------------
+
+ps_grep() {
+  ps aux | grep -v grep | grep $1
+}
+
+
+
+

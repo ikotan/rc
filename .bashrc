@@ -9,7 +9,16 @@ fi
 # ----------------------------
 # APPDRIVER
 # ----------------------------
-source ~/.bashrc.appdriver
+if [ -f ~/.bashrc.appdriver ]; then
+    source ~/.bashrc.appdriver
+fi
+
+# ----------------------------
+# FUNCTION
+# ----------------------------
+if [ -f ~/.bashrc.function ]; then
+    source ~/.bashrc.function
+fi
 
 # ----------------------------
 # libevent tmux nodebrew perlbrew rubyenv
@@ -18,8 +27,6 @@ export LD_LIBRARY_PATH=/usr/local/libevent/lib
 export PATH=${PATH}:/usr/local/tmux/bin
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 source ~/perl5/perlbrew/etc/bashrc
-<<<<<<< HEAD
-=======
 export PATH="$HOME/.rbenv/bin:$PATH"  && eval "$(rbenv init -)"
 
 # ----------------------------
@@ -48,7 +55,7 @@ fi
 # ----------------------------
 # PROMPT
 # ----------------------------
-export PS1='$(check-shell-command):\[\033[1;35m\]\t\[\033[00m\]:\[\033[1;36m\]\w\n\[\033[1;32m\]\u\[\033[1;31m\]$(__perl_version)$(__git_ps1)\[\033[00m\]->'
+export PS1='$(check-shell-command):\[\033[1;35m\]\t\[\033[00m\]:\[\033[1;36m\]\w\n\[\033[1;32m\]\u\[\033[1;31m\]$(__perl_version)$(__git_branch_ps1)\[\033[00m\]->'
 
 # ----------------------------
 # 顔文字作成
@@ -114,6 +121,7 @@ alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias tmux='tmux -2'
 alias cassandra='sudo /usr/local/cassandra/bin/cassandra'
+alias mysql='mysql -u root'
 
 export HISTSIZE=100000
 export HISTFILESIZE=100000
@@ -131,15 +139,3 @@ stty stop undef
 bind '"\C-n": history-search-forward'
 # C-pで履歴検索
 bind '"\C-p": history-search-backward'
-
-# ----------------------------
-# perl module version 確認
-# ----------------------------
-
-perlmv () {
-    for MODULE in $@
-    do
-        perl -le "eval { require $MODULE}; print qq{${MODULE}: \$${MODULE}::VERSION}"
-    done
-    MODULE=
-}

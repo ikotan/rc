@@ -122,10 +122,15 @@ endif
             " \     'commands': ['OverCommandLine'] } }
 
   " SublimeTextの複数マーク& 同時編集
-  " NeoBundle 'terryma/vim-multiple-cursors'
+  NeoBundle 'terryma/vim-multiple-cursors'
   " NeoBundleLazy 'terryma/vim-multiple-cursors', { 'autload': {
       " \ 'function_prefix': 'multiple_cursors',
       " \ }}
+
+  " 1行のコードを文脈的に同じ意味の複数行のコードに相互変換する
+  NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
+            \ 'autoload': {
+            \     'commands': ['SplitjoinJoin', 'SplitjoinSplit'] } }
 
   " htmlのショートカット
   NeoBundle 'mattn/emmet-vim'
@@ -238,10 +243,16 @@ endif
   " ctrip 多機能セレクタ
   NeoBundle 'kien/ctrlp.vim'
 
+  " vimのスタート画面
+  NeoBundle 'mhinz/vim-startify'
+
   " gitの差分を表示ハイライト shows a git diff in the 'gutter' (sign column)
   NeoBundleLazy 'airblade/vim-gitgutter', {
             \ 'autoload': {
             \     'commands': ['GitGutterToggle'] } }
+
+  " バージョン管理カスタマイズ
+  NeoBundle 'vim-scripts/vcscommand.vim'
 
 " }}}
 

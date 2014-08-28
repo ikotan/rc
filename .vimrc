@@ -356,10 +356,10 @@ let g:rehash256=1
 
 " let g:solarized_termtrans=1
 let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
 
 " let g:molokai_original=1
-" colorscheme molokai
+colorscheme molokai
 
 " colorscheme Tomorrow-Night-Eighties
 
