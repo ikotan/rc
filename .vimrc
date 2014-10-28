@@ -343,7 +343,7 @@ elseif &term =~ "xterm-color"
   set t_Sf=[4%dm
 endif
 
-syntax enable                 " ハイライト on
+syntax enable " ハイライト on
 
 if has('gui_running')
     set background=light
@@ -351,17 +351,17 @@ else
     set background=dark
 endif
 
-
 let g:rehash256=1
 
+" call togglebg#map('<F5>')
+" set t_Co=16
 " let g:solarized_termtrans=1
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=16
 " colorscheme solarized
+
 
 " let g:molokai_original=1
 colorscheme molokai
-
-" colorscheme Tomorrow-Night-Eighties
 
 " vimのカラー修正
 hi Normal     ctermbg=none
@@ -517,8 +517,8 @@ noremap <space>ap     :setfiletype apache
 " noremap <space>cs         :setfiletype cs
 noremap <space>css        :setfiletype css
 noremap <space>scss       :setfiletype scss
-" noremap <space>diff       :setfiletype diff
-" noremap <space>eruby      :setfiletype eruby
+noremap <space>diff       :setfiletype diff
+noremap <space>eruby      :setfiletype eruby
 noremap <space>html       :setfiletype html
 noremap <space>java       :setfiletype java
 noremap <space>js         :setfiletype javascript

@@ -262,7 +262,9 @@ au Filetype unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
-let g:unite_source_file_mru_limit = 200
+let g:unite_source_file_mru_limit = 5000
+let g:unite_source_rec_min_cache_files = 50
+let g:unite_source_rec_max_cache_files = 1000
 
 " unite-plugins
 cnoremap UH Unite help<Enter>
@@ -293,7 +295,7 @@ if executable('ag')
 endif
 
 " ignore files
-call unite#custom#source('file_rec/async', 'ignore_pattern', '(png\|\.t\|gif\|jpeg\|jpg)$')
+call unite#custom#source('file_rec/async', 'ignore_pattern', '(png\|gif\|jpeg\|jpg)$')
 
 
 "------------------------------------
