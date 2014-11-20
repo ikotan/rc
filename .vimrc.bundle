@@ -187,6 +187,9 @@ endif
   " scss
   NeoBundle 'cakebaker/scss-syntax.vim'
 
+  " ruby
+  NeoBundle 'vim-ruby/vim-ruby'
+
   " Ruby向けにendを自動挿入してくれる
   NeoBundle 'tpope/vim-endwise'
 

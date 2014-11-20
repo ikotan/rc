@@ -437,6 +437,9 @@ nnoremap vp vip
 " 全行選択
 nnoremap val ggVG
 
+" 全行整形
+nnoremap qt gg=G
+
 " カーソルから行頭まで削除(インサートモード)
 " inoremap <silent> <C-k> <Esc>lc^
 " カーソルから行末まで削除(インサートモード)
@@ -468,6 +471,10 @@ autocmd BufWritePre * :%s/\t/  /ge
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
+
+" ビジュアルモードでインデント移動
+vnoremap > >gv
+vnoremap < <gv
 
 "-------------------------------------------------------------------------------
 " エンコーディング関連 Encoding
@@ -510,11 +517,7 @@ command! Sjis Cp932
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 
 " ファイルタイプの変換ショートカット
-noremap <space>ap     :setfiletype apache
-" noremap <space>aspvbs     :setfiletype aspvbs
-" noremap <space>c          :setfiletype c
-" noremap <space>cpp        :setfiletype cpp
-" noremap <space>cs         :setfiletype cs
+noremap <space>ap         :setfiletype apache
 noremap <space>css        :setfiletype css
 noremap <space>scss       :setfiletype scss
 noremap <space>diff       :setfiletype diff
@@ -529,11 +532,10 @@ noremap <space>ruby       :setfiletype ruby
 noremap <space>haml       :setfiletype haml
 noremap <space>sh         :setfiletype sh
 noremap <space>sql        :setfiletype sql
-" noremap <space>vb         :setfiletype vb
 noremap <space>vim        :setfiletype vim
-" noremap <space>wsh        :setfiletype wsh
 noremap <space>xhtml      :setfiletype xhtml
 noremap <space>xml        :setfiletype xml
 noremap <space>yaml       :setfiletype yaml
 noremap <space>zsh        :setfiletype zsh
 noremap <space>scala      :setfiletype scala
+noremap <space>ng         :setfiletype nginx
