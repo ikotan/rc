@@ -153,13 +153,18 @@ let Tlist_Auto_Update = 1       " 自動更新
 "------------------------------------
 " quickRun
 "------------------------------------
-" nmap <silent> qr :QuickRun -outputter/buffer/close_on_empty 1<Enter>
 nmap <silent> qr :QuickRun -hook/time/enable 1<Enter>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+set termencoding=utf-8
 let g:quickrun_config = {}
-let g:quickrun_config['markdown'] = {
-      \   'outputter': 'browser'
+let g:quickrun_config.scala = {
+      \   'cmdopt': '-Dfile.encoding=' . &termencoding,
+      \   'hook/output_encode/encoding': '&termencoding'
       \ }
+
+" let g:quickrun_config['markdown'] = {
+      " \   'outputter': 'browser'
+      " \ }
 
 "------------------------------------
 " Syntastic
