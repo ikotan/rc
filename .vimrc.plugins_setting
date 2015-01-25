@@ -61,6 +61,8 @@ let g:neocomplcache_max_list = 20
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default'     : '',
     \ 'perl'        : $HOME . '/.vim/dict/perl.dict',
+    \ 'ruby'        : $HOME . '/.vim/dict/ruby.dict',
+    \ 'scala'        : $HOME . '/.vim/dict/scala.dict',
     \ 'javascript'  : $HOME.'/.vim/dict/javascript.dict'
     \ }
 " Plugin key-mappings.
@@ -149,6 +151,11 @@ let Tlist_Use_Right_Window = 1  " 右側でtaglistのウィンドーを表示
 let Tlist_Exit_OnlyWindow = 1   " taglistのウィンドーが最後のウィンドーならばVimを閉じる
 let Tlist_Auto_Open = 1         " 自動表示
 let Tlist_Auto_Update = 1       " 自動更新
+
+"------------------------------------
+" tagbar.vim
+"------------------------------------
+" nmap <silent> tl :TagbarToggle<Enter>
 
 "------------------------------------
 " quickRun

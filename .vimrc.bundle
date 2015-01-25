@@ -110,8 +110,11 @@ endif
   " ソースコード上のメソッド宣言、変数宣言の一覧を表示
   NeoBundle 'taglist.vim'
 
+  " taglist.vimの進化版
+  " NeoBundle 'majutsushi/tagbar'
+
   " エラーがある場所をhilight
-  " NeoBundle 'errormarker.vim'
+  " NeoBundle 'vim-scripts/errormarker.vim'
 
   " 複数の単語ハイライト
   NeoBundle 't9md/vim-quickhl'

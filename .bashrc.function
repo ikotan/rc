@@ -44,6 +44,3 @@ mem_all_key() {
   memcached-tool 127.0.0.1:11211 dump
 }
 
-
-
-
